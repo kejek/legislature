@@ -27,7 +27,7 @@ https://www.python.org/downloads/release/python-2713/ for windows
 ```
 ## Deployment
 
-Deploying to a live production environment requires some changes to legislature/leg_app/settings.py including changing DEBUG=True to DEBUG=False. Updating the email server and secret_key if needed.
+Deploying to a live production environment requires some changes to legislature/legislature/settings.py including changing DEBUG=True to DEBUG=False. Updating the email server and secret_key if needed.
 
 ## Built With
 
