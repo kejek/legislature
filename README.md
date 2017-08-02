@@ -4,8 +4,8 @@ Checkout Board for the Legislative Branch. Used to track employee status in the 
 
 ## Getting Started
 
-Download the entire contents of checkout_board to local machine.
-Using CMD on terminal navigate to the base directory (checkout_board) and use "python manage.py runserver" to run the application.
+Download the entire contents of legislature to local machine.
+Using CMD on terminal navigate to the base directory (legislature) and use "python manage.py runserver" to run the application.
 See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites/Installing
@@ -27,7 +27,7 @@ https://www.python.org/downloads/release/python-2713/ for windows
 ```
 ## Deployment
 
-Deploying to a live production environment requires some changes to checkout_board/checkout_board/settings.py including changing DEBUG=True to DEBUG=False. Updating the email server and secret_key if needed.
+Deploying to a live production environment requires some changes to legislature/leg_app/settings.py including changing DEBUG=True to DEBUG=False. Updating the email server and secret_key if needed.
 
 ## Built With
 
