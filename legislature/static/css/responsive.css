@@ -1,0 +1,91 @@
+	
+	/* 
+	Max width before this PARTICULAR table gets nasty
+	This query will take effect for any screen smaller than 760px
+	and also iPads specifically.
+	*/
+	@media only screen and (max-width: 760px),
+	(min-device-width: 768px) and (max-device-width: 1024px) {
+	
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr { 
+			display: block !important;
+		}
+		
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr { 
+			position: absolute !important;
+			top: -9999px !important;
+			left: -9999px !important;
+		}
+
+		tr { border: 1px solid #ccc !important; }
+		
+		td { 
+			/* Behave  like a "row" */
+			border: none !important;
+			border-bottom: 1px solid #eee !important;
+			position: relative !important;
+			padding-left: 35% !important;
+			min-height: 35px !important;
+		}
+		th {
+			/* Behave  like a "row" */
+			border: none !important;
+			border-bottom: 1px solid #eee !important;
+			position: relative !important;
+			padding-right: 35% !important;
+			min-height: 35px !important;
+		}
+		
+		td:before { 
+			/* Now like a table header */
+			position: absolute !important;
+			/* Top/left values mimic padding */
+			top: 6px !important;
+			left: 6px !important;
+			width: 45% !important;
+			padding-right: 10px !important;
+			white-space: nowrap !important;
+		}
+		th:before {
+			/* Now like a table header */
+			position: absolute !important;
+			/* Top/left values mimic padding */
+			top: 6px !important;
+			left: 6px !important;
+			width: 45% !important;
+			padding-right: 10px !important;
+			white-space: nowrap !important;
+		}
+		/*
+		Label the data
+		*/
+		td:nth-of-type(1):before { content: "Name"; }
+		td:nth-of-type(2):before { content: "Phone"; }
+		td:nth-of-type(3):before { content: "Status"; }
+		td:nth-of-type(4):before { content: "Notes"; }
+		td:nth-of-type(5):before { content: "Returning"; }
+		.site_phone:before{ content: "Site Phone"; }
+		.site:before { content: "Site"; }
+		.schedule:before{ content: "Schedule"; }
+	}
+
+	
+	/* Smartphones (portrait and landscape) ----------- */
+	@media only screen
+	and (min-device-width : 320px)
+	and (max-device-width : 480px) {
+		body { 
+			padding: 0 !important;
+			margin: 0 !important;
+			width: 320px !important; }
+		}
+	
+	/* iPads (portrait and landscape) ----------- */
+	@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+		body { 
+			width: 495px !important;
+		}
+	}
+	

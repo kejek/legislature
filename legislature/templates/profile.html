@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load checkout_tags %}
+{% block head_title %} Legislature Checkout {% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">User Information</div>
+                    <div class="panel-body">
+                        {{ user.fn }}<br/>
+                        {{ user.email }}<br/>
+                        {{ user.desc }} <br/>
+                        {{ user.telephoneNumber }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">All Attributes</div>
+                    <div class="panel-body wordwrap">
+                        <h5>This is here for Reference</h5>
+                        {{ user.ldap_user.attrs }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Member Of</div>
+                    <div class="panel-body">
+                        {% for group in user.memberOf %}
+                            {{ group }} <br/>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    {% status_modal %}
+
+{% endblock content %}

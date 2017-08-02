@@ -1,0 +1,44 @@
+<table id="checkout-table" class="table ">
+    <tbody>
+    {% for list in employeeList %}
+        <div class="row">
+            {% for emp in list %}
+                <tr id="tr-{{ emp.id }}"
+                    class="checkout-board">
+                    <td>
+                        <div id="emp{{ emp.id }}">
+                            <div class="media-small">
+
+                                                <span id="status-card{{ emp.id }}"
+                                                      class="card-small status-{{ emp.status.statusId }}"
+                                                      title="{{ emp.status }}"></span>
+
+
+                                <div class="media-body">
+                                    <h5 class="media-heading-small">
+                                        <b><span
+                                                title="Name: {{ emp.name|capfirst }}">{{ emp.name|capfirst }}</span></b>
+                                        - <span
+                                            title="Group: {{ emp.group }}"
+                                            class=""
+                                            style="font-size: 10px;">{{ emp.group }}</span>
+                                                            <span class=""
+                                                                  title="Phone: {{ emp.phone }}"
+                                                                  style="font-size: 10px;"> - Ph: {{ emp.phone }}</span>
+                                        - <span
+                                            style="font-size: 10px;"
+                                            id="emp-notes{{ emp.id }}"
+                                            title="Notes: {{ emp.notes }} {{ emp.site }} {{ emp.site_phone }}">{{ emp.notes|truncatechars:75 }}</span>
+                                    </h5>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,98 @@
+<table class="table table-condensed table-striped table-hover">
+
+    <tbody>
+    {% for list in employeeList %}
+        {% for emp in list %}
+            <tr>
+                <td>
+                    <div id="emp{{ emp.id }}">
+                        <div class="media">
+
+                                                <span id="status-card{{ emp.id }}"
+                                                      class="card status-{{ emp.status.statusId }}"></span>
+
+
+                            <div class="media-body">
+                                <h5 class="media-heading">
+                                    <b>{{ emp.name|capfirst }}</b>
+                                    - <span class=""
+                                            style="font-size: 10px;">{{ emp.group }}</span>
+                                                    <span class=""
+                                                          style="font-size: 10px;"> - Ph: {{ emp.phone }}</span>
+                                </h5>
+
+                                                <span id="status-description{{ emp.id }}"
+                                                      title="{{ emp.name|capfirst }}'s current status"
+                                                      class="label status-{{ emp.status.statusId }} label-as-badge">{{ emp.status }}</span>
+                                                <span style="font-size: 10px;"
+                                                      id="emp-notes{{ emp.id }}">{{ emp.notes|truncatechars:75 }}</span>
+                                                <span style="font-size: 10px;"
+                                                      id="emp-site{{ emp.id }}"> {{ emp.site }}</span>
+                                <span style="font-size: 10px;">  {{ emp.site_phone }}</span>
+                            </div>
+                            <div class="media-right media-top">
+                                <!--
+
+
+                                        {% if user.is_authenticated %}
+
+
+
+                                            {% if user.get_username == emp.user %}
+                                                        <span class="glyphicon glyphicon-pencil"
+                                                              style="cursor: pointer;"
+                                                              data-toggle="modal"
+                                                              data-id="1"
+                                                              title="Update Status Details for
+
+
+                                                {{ emp.name|capfirst }}"
+                                                              onclick="employeeInfoCheckout(
+                                                                {{ emp.id }})"
+                                                              data-target="#checkoutModal">
+                                                        </span>
+                                                    {% else %}
+                                                        <span class="glyphicon glyphicon-eye-open"
+                                                              style="cursor: pointer;"
+                                                              data-toggle="modal"
+                                                              data-id="1"
+                                                              title="Display Status Details for
+
+
+                                                {{ emp.name|capfirst }}"
+                                                              onclick="employeeInfo(
+                                                                {{ emp.id }})"
+                                                              data-target="#statusModal">
+                                                        </span>
+                                                    {% endif %}
+                                                {% else %}
+                                                    <span class="glyphicon glyphicon-eye-open"
+                                                          style="cursor: pointer;"
+                                                          data-toggle="modal"
+                                                          data-id="1"
+                                                          title="Display Status Details for
+
+
+                                            {{ emp.name|capfirst }}"
+                                                          onclick="employeeInfo(
+                                                            {{ emp.id }})"
+                                                          data-target="#statusModal">
+                                                        </span>
+                                                {% endif %} -->
+                                <a data-toggle="tooltip"
+                                   title="Contact {{ emp.name|capfirst }}"
+                                   href="mailto: {{ emp.email }}"
+                                   style="text-decoration: none;color:inherit;"><span
+                                        class="glyphicon glyphicon-envelope"
+                                        style="cursor: pointer;"></span></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endfor %}
+
+    </tbody>
+</table>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load checkout_tags %}
+{% block head_title %} Legislature Checkout {% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                {% if user.is_authenticated %}
+                    <!--hardcoded for now -->
+                    <ul>
+                        <li><a href="/checkout">Checkout</a></li>
+                    </ul>
+                    {% for group in user.memberOf %}
+                        {% if group == "LEG-LAWSII-Annos" %}
+                            <ul>
+                                <li><a href="#">My Task Dashboard</a></li>
+                                <li><a href="#">Bill Draft Dashboard</a></li>
+                            </ul>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
